@@ -1,0 +1,52 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+# === Build files ===
+/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Workspace metadata (à ne pas versionner)
+.metadata/
+
+# === Temporary & backup files ===
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+# === OS-specific ===
+.DS_Store
+Thumbs.db
+
+# === Logs ===
+*.log
+
+# === Test reports ===
+/test-output/
+/surefire-reports/
+/cucumber-reports/
+/extent-reports/
+
+# === Configuration files ===
+.env
+config/
+*.properties
+
+# === Java error logs ===
+hs_err_pid*.log
