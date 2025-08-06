@@ -21,9 +21,14 @@ public class LoginStepDefinition {
         loginpage.goToUrl();
     }
 
-    @When("User enters username as {string} and password as {string} and clicks on Login button")
-    public void userEntersUsernameAsAndPasswordAsAndClicksOnLoginButton(String username, String password) {
-        loginpage.loginToSite(username, password);
+    @When("User enters valid username and password and clicks on Login button")
+    public void userEntersValidUsernameAndPasswordAndClicksOnLoginButton() {
+        loginpage.positiveLogin();
+    }
+
+    @When("User enters Invalid username and password and clicks on Login button")
+    public void userEntersInvalidUsernameAndPasswordAndClicksOnLoginButton() {
+        loginpage.negativeLogin();
     }
 
     @Then("User should be redirected to the Products page {string}")

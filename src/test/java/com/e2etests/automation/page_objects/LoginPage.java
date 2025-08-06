@@ -50,17 +50,27 @@ public class LoginPage {
         return errorMsg.getText();
     }
 
-    public void loginToSite(String username, String pwd) {
+    public void positiveLogin() {
         userName.clear();
+        String username = configfilereader.getProperties("home.login");
         userName.sendKeys(username);
 
         password.clear();
+        String pwd = configfilereader.getProperties("home.password");
         password.sendKeys(pwd);
 
         btnSubmit.click();
-
-
     }
 
+    public void negativeLogin() {
+        userName.clear();
+        String username = configfilereader.getProperties("home.false_login");
+        userName.sendKeys(username);
 
+        password.clear();
+        String pwd = configfilereader.getProperties("home.false_password");
+        password.sendKeys(pwd);
+
+        btnSubmit.click();
+    }
 }
