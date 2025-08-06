@@ -21,19 +21,9 @@ public class LoginStepDefinition {
         loginpage.goToUrl();
     }
 
-    @When("User enters username as {string}")
-    public void userEntersUsernameAs(String username) {
-        loginpage.fillUserName(username);
-    }
-
-    @When("User enters password as {string}")
-    public void userEntersPasswordAs(String password) {
-        loginpage.fillPassword(password);
-    }
-
-    @When("User clicks on Login button")
-    public void userClicksOnLoginButton() {
-        loginpage.clickOnBtnLogin();
+    @When("User enters username as {string} and password as {string} and clicks on Login button")
+    public void userEntersUsernameAsAndPasswordAsAndClicksOnLoginButton(String username, String password) {
+        loginpage.loginToSite(username, password);
     }
 
     @Then("User should be redirected to the Products page {string}")

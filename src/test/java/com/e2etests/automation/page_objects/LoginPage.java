@@ -42,27 +42,24 @@ public class LoginPage {
         Setup.getDriver().get(configfilereader.getProperties("home.url"));
     }
 
-    public void fillUserName(String name) {
-        userName.sendKeys(name);
-
-    }
-
-    public void fillPassword(String pwd) {
-        password.sendKeys(pwd);
-
-    }
-
-    public void clickOnBtnLogin() {
-        btnSubmit.click();
-
-    }
-
     public String getMsgLogin() {
         return welcomeMsg.getText();
     }
 
     public String getErrorMsg() {
         return errorMsg.getText();
+    }
+
+    public void loginToSite(String username, String pwd) {
+        userName.clear();
+        userName.sendKeys(username);
+
+        password.clear();
+        password.sendKeys(pwd);
+
+        btnSubmit.click();
+
+
     }
 
 
