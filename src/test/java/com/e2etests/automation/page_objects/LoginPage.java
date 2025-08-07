@@ -1,6 +1,5 @@
 package com.e2etests.automation.page_objects;
 
-import com.e2etests.automation.step_definitions.LoginStepDefinition;
 import com.e2etests.automation.utils.ConfigFileReader;
 import com.e2etests.automation.utils.Setup;
 import org.openqa.selenium.WebElement;
@@ -73,4 +72,19 @@ public class LoginPage {
 
         btnSubmit.click();
     }
+
+    public void loginToSite() {
+        Setup.getDriver().get(configfilereader.getProperties("home.url"));
+
+        userName.clear();
+        String username = configfilereader.getProperties("home.login");
+        userName.sendKeys(username);
+
+        password.clear();
+        String pwd = configfilereader.getProperties("home.password");
+        password.sendKeys(pwd);
+
+        btnSubmit.click();
+    }
+
 }

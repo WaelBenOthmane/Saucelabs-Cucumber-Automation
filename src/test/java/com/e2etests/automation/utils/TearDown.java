@@ -20,7 +20,7 @@ public class TearDown {
             final byte[] screenshot = ((TakesScreenshot) Setup.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "Screenshot");
         }
-        Setup.getDriver().quit();
+        //Setup.getDriver().quit();
     }
 
 }
