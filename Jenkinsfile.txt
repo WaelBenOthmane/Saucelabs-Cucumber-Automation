@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Cloner le repo (optionnel si Jenkins le fait déjà via config Git)
+                git 'https://github.com/WaelBenOthmane/Saucelabs-Cucumber-Automation.git'
+            }
+        }
+
+        stage('Build and Test') {
+            steps {
+                sh 'mvn clean test'
+            }
+        }
+
+        stage('Publish Report') {
+            steps {
+                publishHTML([reportDir: 'target/cucumber-report-html', reportFiles: 'index.html', reportName: 'Cucumber Report'])
+            }
+        }
+    }
+}
