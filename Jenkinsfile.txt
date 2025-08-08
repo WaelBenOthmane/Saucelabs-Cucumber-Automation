@@ -1,24 +1,37 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'MAVEN_HOME' // Remplace par le nom exact de ton Maven installé dans Jenkins
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                // Cloner le repo (optionnel si Jenkins le fait déjà via config Git)
                 git 'https://github.com/WaelBenOthmane/Saucelabs-Cucumber-Automation.git'
             }
         }
 
-        stage('Build and Test') {
+        stage('Build & Test') {
             steps {
                 sh 'mvn clean test'
             }
         }
 
-        stage('Publish Report') {
+        stage('Cucumber HTML Report') {
             steps {
-                publishHTML([reportDir: 'target/cucumber-report-html', reportFiles: 'index.html', reportName: 'Cucumber Report'])
+                publishHTML([
+                    reportDir: 'target', 
+                    reportFiles: 'cucumber-report.html', 
+                    reportName: 'Cucumber Report'
+                ])
             }
+        }
+    }
+
+    post {
+        always {
+            junit '**/target/surefire-reports/*.xml'
         }
     }
 }
